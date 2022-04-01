@@ -1,0 +1,1 @@
+0 12 * * Mon java:bot.WeatherForecast#weekForecast
