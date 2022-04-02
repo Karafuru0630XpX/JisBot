@@ -120,15 +120,15 @@ v1.0が完成したのち解説します
 <img src="https://img.shields.io/badge/-Github-181717.svg?logo=github&style=plastic"> GitHub<br>
 　　
 * ライブラリなど  
-####Discord4j 
+#### Discord4j 
 com.discord4j:discord4j-core  v3.2.2  
-####What3Words
+#### What3Words
 com.what3words:w3w-java-wrapper v3.1.12  
-####cron4j
+#### cron4j
 it.sauronsoftware.cron4j:cron4j v2.2.5  
-####junit
+#### junit
 junit:junit v4.13.2  
-####maven-assembly-plugin
+#### maven-assembly-plugin
 org.apache.maven.plugins:maven-assembly-plugin v3.3.0
-####jsoup
+#### jsoup
 org.jsoup:jsoup v1.14.3
