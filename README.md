@@ -39,7 +39,7 @@ discord4jというライブラリを使用して作ったbotです。
 <a id="chapter5"></a>
 ## 作成者
 
-* (Karafuru - からふる)[https://github.com/Karafuru0630XpX/]
+* [Karafuru - からふる](https://github.com/Karafuru0630XpX/)
 * xpx0karafuru0630@gmail.com
 
 <a id="chapter6"></a>
@@ -80,7 +80,8 @@ java -jar ファイル名
 <a id="chapter9"></a>
 ## ノート
 
-注意点などがあれば書く
+configのapi keyなどは必要なら記入してください  
+記入しない場合は一部コマンドが機能しません
 
 <a id="chapter10"></a>
 ## ライセンス
@@ -89,10 +90,13 @@ java -jar ファイル名
 
 <a id="chapter11"></a>
 ## アイデア
-
+* 定期的に天気予報をお知らせするようにする
 
 <a id="chapter12"></a>
 ## 問題
+
+現在特になし  
+問題があれば教えてください
 
 
 <a id="chapter13"></a>
@@ -108,6 +112,8 @@ Create repository - 2022/04/02
 
 <a id="chapter15"></a>
 ## コード解説
+
+v1.0が完成したのち解説します
 
 ## 使用したもの
 * 主に使用したもの  
