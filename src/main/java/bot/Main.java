@@ -61,7 +61,7 @@ public class Main {
 
         //プロパティに情報を追加
         config.setProperty("BotName","your bot name");
-        config.setProperty("token","your token");
+        config.setProperty("token","your bot token");
         config.setProperty("prefix","/");
         config.setProperty("WordsApiKey","What3Words Api key");
         config.setProperty("WeatherForecastWeek","true");
@@ -188,7 +188,7 @@ public class Main {
                 if (guild != null) {
                     GuildMessageChannel gmc = (GuildMessageChannel)channel;
                     EmbedCreateSpec.Builder builder = EmbedCreateSpec.builder();
-                    builder.author(botName, "https://github.com/Karafuru0630XpX/JavaDiscordBot", appInfo.getIconUrl(Image.Format.PNG).get());
+                    builder.author(botName, "https://github.com/Karafuru0630XpX/JisBot", appInfo.getIconUrl(Image.Format.PNG).get());
                     builder.image(guild.getIconUrl(Image.Format.JPEG).get());
                     builder.title("Guild Info / ギルド情報");
                     builder.url("");
@@ -199,7 +199,7 @@ public class Main {
                     builder.addField("addField", "inline = true", true);
                     builder.addField("addFIeld", "inline = true", true);
                     builder.addField("addFile", "inline = false", false);
-                    builder.footer("setFooter --> setTimestamp", "https://cdn.discordapp.com/attachments/869278213354967071/959069549762846720/code-image.png");
+                    builder.footer("setFooter --> setTimestamp", appInfo.getIconUrl(Image.Format.PNG).get());
                     builder.timestamp(Instant.now());
                     channel.createMessage(builder.build()).block();
                 }
