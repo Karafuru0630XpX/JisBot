@@ -1,7 +1,4 @@
-<img src="https://img.shields.io/github/stars/Karafuru0630XpX/JisBot">
-<img src="https://img.shields.io/github/forks/Karafuru0630XpX/JisBot">
-<img src="https://img.shields.io/github/license/Karafuru0630XpX/JisBot">
-<img src="https://img.shields.io/github/issues/Karafuru0630XpX/JisBot"> 
+<img src="https://img.shields.io/github/stars/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/forks/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/license/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/issues/Karafuru0630XpX/JisBot"> 
 
 <a id="chapter1"></a>
 # JisBot (JavaDiscordBot) [![Download][badge]][link]
