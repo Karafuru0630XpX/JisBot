@@ -34,7 +34,7 @@ discord4jというライブラリを使用して作ったbotです。
 <a id="chapter3"></a>
 ## デモ
 
-![gif](https://github.com/kotabrog/ft_mini_ls/blob/main/image/ft_mini_ls.gif)
+![gif](https://github.com/Karafuru0630XpX/JisBot/blob/master/assets/demo.gif)
 
 <a id="chapter5"></a>
 ## 作成者
