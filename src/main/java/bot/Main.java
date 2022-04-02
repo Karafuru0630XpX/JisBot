@@ -173,7 +173,7 @@ public class Main {
                 if (args.length == 1) {
                     sendMsg("募集人数などが入力されていません！```usage : /bosyu <条件、人数など>```",channel);
                 } else {
-                    sendMsg("@" + member.username() + " さんが募集をかけました@" + args[1], channel);
+                    sendMsg(member.username() + " さんが募集をかけました@" + args[1], channel);
                     sendReactMessage("↓参加を希望する場合はこちらからどうぞ","U+270B",channel);
                 }
             }
