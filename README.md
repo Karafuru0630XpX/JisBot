@@ -1,18 +1,18 @@
 <img src="https://img.shields.io/github/stars/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/forks/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/license/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/issues/Karafuru0630XpX/JisBot"> 
 
 <a id="chapter1"></a>
-# JisBot (JavaDiscordBot) [![Download][badge]][link]
+# 🤖JisBot (JavaDiscordBot) [![Download][badge]][link]
 
 [badge]: https://img.shields.io/badge/-%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89-4FC08D.svg?logo=&style=plastic
 [link]: https://github.com/Karafuru0630XpX/JisBot/releases
 
 discord4jというライブラリを使用して作ったbotです。    
-サクッと起動サクッと利用を目的に作りました  
+**サクッと起動サクッと利用**を目的に作りました  
 求められている機能があるかわかりませんのである場合何らかの方法で伝えていただけるとアイデアに追加します
 
 <a id="chapter2"></a>
-## 目次
-
+## 🎈目次
+[test](/play secret)
 1. [概要](#chapter1)
 2. [目次](#chapter2)
 3. [デモ](#chapter3)
@@ -36,7 +36,7 @@ discord4jというライブラリを使用して作ったbotです。
 ![gif](https://github.com/Karafuru0630XpX/JisBot/blob/master/assets/demo.gif)
 
 <a id="chapter5"></a>
-## 作成者
+## 🔨作成者
 
 * [Karafuru - からふる](https://github.com/Karafuru0630XpX/)
 * xpx0karafuru0630@gmail.com
@@ -57,7 +57,7 @@ discord4jというライブラリを使用して作ったbotです。
 jarはReleaseからお好きなバージョンをダウンロードしてください
 
 <a id="chapter8"></a>
-## 使い方
+## 💻使い方
 
 1. jarをインストール
 2. コマンドプロンプトを起動
@@ -95,7 +95,7 @@ configのapi keyなどは必要なら記入してください
 [GNU General Public License v3.0](https://ja.wikipedia.org/wiki/GNU_General_Public_License).
 
 <a id="chapter11"></a>
-## アイデア
+## 💭アイデア
 * 定期的に天気予報をお知らせするようにする
 
 <a id="chapter12"></a>
@@ -106,7 +106,7 @@ configのapi keyなどは必要なら記入してください
 
 
 <a id="chapter13"></a>
-## メッセージ
+## 💬メッセージ
 開発者の方へ
 discord4jの使い方が分からない場合などにコードを使用してもらえるような見やすいコードになったかと思います。  
 拡張機能などを作ってもらえると助かります(もちろんライセンスは確認してください)
