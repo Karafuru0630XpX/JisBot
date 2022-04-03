@@ -12,7 +12,7 @@ discord4jというライブラリを使用して作ったbotです。
 
 <a id="chapter2"></a>
 ## 🎈目次
-[test](/play secret)
+
 1. [概要](#chapter1)
 2. [目次](#chapter2)
 3. [デモ](#chapter3)
@@ -31,7 +31,7 @@ discord4jというライブラリを使用して作ったbotです。
 
 
 <a id="chapter3"></a>
-## デモ
+## 👀デモ
 
 ![gif](https://github.com/Karafuru0630XpX/JisBot/blob/master/assets/demo.gif)
 
@@ -42,7 +42,7 @@ discord4jというライブラリを使用して作ったbotです。
 * xpx0karafuru0630@gmail.com
 
 <a id="chapter6"></a>
-## 前提
+## 🍌前提
 
 実行に必要なものなど
 
@@ -50,7 +50,7 @@ discord4jというライブラリを使用して作ったbotです。
 * Discordのbot(デベロッパーポータルから作成してください)
 
 <a id="chapter7"></a>
-## インストール
+## 🌐インストール
 
 ライブラリはjarファイルにまとめています
 
@@ -78,19 +78,19 @@ java -jar ファイル名
 ```
 
 <a id="chapter"></a>
-## 機能
+## 📒機能
 v1.0がリリースされたら追加します
-###コマンド
-###コンフィグ
+###⌘コマンド
+###⚙️コンフィグ
 
 <a id="chapter9"></a>
-## ノート
+## 📝メモ
 
 configのapi keyなどは必要なら記入してください  
 記入しない場合は一部コマンドが機能しません
 
 <a id="chapter10"></a>
-## ライセンス
+## 📜ライセンス
 
 [GNU General Public License v3.0](https://ja.wikipedia.org/wiki/GNU_General_Public_License).
 
@@ -99,7 +99,7 @@ configのapi keyなどは必要なら記入してください
 * 定期的に天気予報をお知らせするようにする
 
 <a id="chapter12"></a>
-## 問題
+## ⚠️問題
 
 現在特になし  
 問題があれば教えてください
@@ -112,16 +112,16 @@ discord4jの使い方が分からない場合などにコードを使用して�
 拡張機能などを作ってもらえると助かります(もちろんライセンスは確認してください)
 
 <a id="chapter14"></a>
-## 歴史
+## ⌛歴史
 
 Create repository - 2022/04/02
 
 <a id="chapter15"></a>
-## コード解説
+## 👨‍🏫コード解説
 
 v1.0が完成したのち解説します
 
-## 使用したもの
+## 📚使用したもの
 * 主に使用したもの  
 <img src="https://img.shields.io/badge/-Java-007396.svg?logo=java&style=plastic"> JDK 15.0.1<br>
 <img src="https://img.shields.io/badge/-Intellij%20IDEA-000000.svg?logo=intellijidea&style=plastic"> Intellij IDEA Community Edition 2021.3.3<br>
