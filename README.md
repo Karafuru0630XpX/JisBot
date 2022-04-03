@@ -6,8 +6,9 @@
 [badge]: https://img.shields.io/badge/-%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89-4FC08D.svg?logo=&style=plastic
 [link]: https://github.com/Karafuru0630XpX/JisBot/releases
 
-discord4jというライブラリを使用して作ったbotです。  
-あなたの求める機能があるか分かりませんが簡単にbotを起動できると思います。
+discord4jというライブラリを使用して作ったbotです。    
+サクッと起動サクッと利用を目的に作りました  
+求められている機能があるかわかりませんのである場合何らかの方法で伝えていただけるとアイデアに追加します
 
 <a id="chapter2"></a>
 ## 目次
@@ -42,9 +43,10 @@ discord4jというライブラリを使用して作ったbotです。
 <a id="chapter6"></a>
 ## 前提
 
-必要なライブラリ
+実行に必要なものなど
 
 * java
+* Discordのbot(デベロッパーポータルから作成してください)
 
 <a id="chapter7"></a>
 ## インストール
@@ -75,6 +77,10 @@ java -jar ファイル名
 ```
 
 <a id="chapter9"></a>
+
+## 機能
+v1.0がリリースされたら追加します
+
 ## ノート
 
 configのapi keyなどは必要なら記入してください  
@@ -130,5 +136,3 @@ it.sauronsoftware.cron4j:cron4j v2.2.5
 junit:junit v4.13.2  
 #### maven-assembly-plugin
 org.apache.maven.plugins:maven-assembly-plugin v3.3.0
-#### jsoup
-org.jsoup:jsoup v1.14.3
