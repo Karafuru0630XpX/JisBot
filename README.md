@@ -16,10 +16,11 @@ discord4jというライブラリを使用して作ったbotです。
 1. [概要](#chapter1)
 2. [目次](#chapter2)
 3. [デモ](#chapter3)
-5. [作成者](#chapter5)
-6. [前提](#chapter6)
-7. [インストール](#chapter7)
-8. [使い方](#chapter8)
+4. [作成者](#chapter5)
+5. [前提](#chapter6)
+6. [インストール](#chapter7)
+7. [使い方](#chapter8)
+8. [機能](#chapter)
 9. [ノート](#chapter9)
 10. [ライセンス](#chapter10)
 11. [アイデア](#chapter11)
@@ -76,11 +77,13 @@ jarと同じディレクトリにbatを作りコマンドを保存しておく�
 java -jar ファイル名
 ```
 
-<a id="chapter9"></a>
-
+<a id="chapter"></a>
 ## 機能
 v1.0がリリースされたら追加します
+###コマンド
+###コンフィグ
 
+<a id="chapter9"></a>
 ## ノート
 
 configのapi keyなどは必要なら記入してください  
