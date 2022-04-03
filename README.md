@@ -1,7 +1,5 @@
-<img src="https://img.shields.io/github/stars/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/forks/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/license/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/issues/Karafuru0630XpX/JisBot"> 
-
 <a id="chapter1"></a>
-# 🤖JisBot (JavaDiscordBot) [![Download][badge]][link] ![downloads][downs] ![Version][ver]
+# 🤖JisBot (JavaDiscordBot) [![Download][badge]][link]
 
 [badge]: https://img.shields.io/badge/-%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89-4FC08D.svg?logo=&style=plastic
 [link]: https://github.com/Karafuru0630XpX/JisBot/releases
@@ -13,14 +11,6 @@ discord4jというライブラリを使用して作ったbotです。
 求められている機能があるかわかりませんのである場合何らかの方法で伝えていただけるとアイデアに追加します
 
 <a id="chapter2"></a>
-
-#### レポジトリ情報
-![issues][issuesLink] ![build][check] ![license][licenseB]
-
-[check]: https://img.shields.io/github/checks-status/Karafuru0630XpX/JisBot/master?logo=checks
-[licenseB]: https://img.shields.io/badge/license-GPL--3.0-brightgreen
-[issuesLink]: https://img.shields.io/github/issues/Karafuru0630XpX/JisBot
-
 ## 🎈目次
 
 1. [概要](#chapter1)
