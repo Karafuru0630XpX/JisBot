@@ -1,10 +1,15 @@
 <img src="https://img.shields.io/github/stars/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/forks/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/license/Karafuru0630XpX/JisBot"><img src="https://img.shields.io/github/issues/Karafuru0630XpX/JisBot"> 
 
 <a id="chapter1"></a>
-# 🤖JisBot (JavaDiscordBot) [![Download][badge]][link]
+# 🤖JisBot (JavaDiscordBot) [![Download][badge]][link] ![downloads][downs] ![Version][ver] ![issues][issuesLink] ![build][check] ![license][licenseB]
 
 [badge]: https://img.shields.io/badge/-%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89-4FC08D.svg?logo=&style=plastic
 [link]: https://github.com/Karafuru0630XpX/JisBot/releases
+[ver]: https://badge.fury.io/gh/Karafuru0630XpX%2FJisBot.png
+[check]: https://img.shields.io/github/checks-status/Karafuru0630XpX/JisBot/master?label=build
+[licenseB]: https://img.shields.io/badge/license-GPL--3.0-brightgreen
+[downs]: https://img.shields.io/github/downloads/Karafuru0630XpX/JisBot/total?logo=download
+[issuesLink]: https://img.shields.io/github/issues/Karafuru0630XpX/JisBot?logo=issues
 
 discord4jというライブラリを使用して作ったbotです。    
 **サクッと起動サクッと利用**を目的に作りました  
