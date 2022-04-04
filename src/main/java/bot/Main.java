@@ -10,6 +10,7 @@ import discord4j.core.object.entity.Guild;
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.GuildMessageChannel;
 import discord4j.core.object.entity.channel.MessageChannel;
+import discord4j.core.object.entity.channel.TextChannel;
 import discord4j.core.object.reaction.ReactionEmoji;
 import discord4j.core.spec.EmbedCreateSpec;
 import discord4j.discordjson.json.UserData;
@@ -18,6 +19,9 @@ import it.sauronsoftware.cron4j.Scheduler;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Instant;
 import java.util.Date;
 import java.util.Objects;
@@ -49,9 +53,20 @@ public class Main {
         String folder = "config/";
 
         //天気予報の時間指定用テキストファイルを生成
-        createAndWriteTextFile( folder + "Morning.txt",cron4jTextFileContents("30","7","*","*","*","bot.WeatherForecast","morningForecast"));
-        createAndWriteTextFile(folder + "Week.txt",cron4jTextFileContents("0","12","*","*","Mon","bot.WeatherForecast","weekForecast"));
-        createAndWriteTextFile(folder + "Month.txt",cron4jTextFileContents("0","8","1","*","*","bot.WeatherForecast","monthForecast"));
+        createAndWriteTextFile( folder + "Morning.txt",cron4jTextFileContents("30","7","*","*","*"));
+        createAndWriteTextFile(folder + "Week.txt",cron4jTextFileContents("0","12","*","*","Mon"));
+        createAndWriteTextFile(folder + "Month.txt",cron4jTextFileContents("0","8","1","*","*"));
+
+        //時間指定テキストファイルを読み込み
+        //パスを定義
+        Path morning = Paths.get(folder + "Morning.txt");
+        Path week = Paths.get(folder + "Week.txt");
+        Path month = Paths.get(folder + "Month.txt");
+
+        //String化
+        String morningTime = Files.readString(morning);
+        String weekTime = Files.readString(week);
+        String monthTime = Files.readString(month);
 
         //プロパティファイルを作成
         System.out.println("  ---config.properties--- ");
@@ -67,8 +82,6 @@ public class Main {
         config.setProperty("WeatherForecastWeek","true");
         config.setProperty("WeatherForecastMonth","true");
         config.setProperty("WeatherForecastMorning","true");
-
-
 
         //プロパティファイルがないときに実行
         if (propertiesPath.exists()) {
@@ -108,9 +121,9 @@ public class Main {
         String token = config.getProperty("token");
         String prefix = config.getProperty("prefix");
         String apiKey = config.getProperty("WordsApiKey");
-        String week = config.getProperty("WeatherForecastWeek");
-        String month = config.getProperty("WeatherForecastMonth");
-        String morning = config.getProperty("WeatherForecastMorning");
+        String weekB = config.getProperty("WeatherForecastWeek");
+        String monthB = config.getProperty("WeatherForecastMonth");
+        String morningB = config.getProperty("WeatherForecastMorning");
 
         //読み込んだ情報をコンソールにて伝える
         System.out.println("-----Setteings-----");
@@ -120,9 +133,9 @@ public class Main {
         System.out.println(" <   Api Keys  >");
         System.out.println("  What 3Words Api Key(WordsApiKey) : " + apiKey);
         System.out.println(" <  Weather Forecast  >");
-        System.out.println("  Weather forecast morning(WeatherForecastMorning) : " + morning);
-        System.out.println("  Weather forecast week(WeatherForecastWeek) : " + week);
-        System.out.println("  Weather forecast month(WeatherForecastMonth) : " + month);
+        System.out.println("  Weather forecast morning(WeatherForecastMorning) : " + morningB);
+        System.out.println("  Weather forecast week(WeatherForecastWeek) : " + weekB);
+        System.out.println("  Weather forecast month(WeatherForecastMonth) : " + monthB);
         System.out.println("-------------------");
 
         //ここから実際のコード
@@ -134,31 +147,34 @@ public class Main {
         System.out.println("Login was successful!");
         System.out.println("Start time : " + date);
 
+        if (gateway == null) return;
+
+        //ギルドのシステムチャンネルを取得
+        TextChannel systemChannel = gateway.getGuilds().blockFirst().getSystemChannel().block();
+
         //what3wordsのapiキーの定義
         final What3WordsV3 wordKey = new What3WordsV3(apiKey);
 
         //天気予報を定期的に通知するプログラム
         Scheduler scheduler = new Scheduler();
-        //プロパティをboolean型で保存出来たらよかったけど今はとりあえずString型で判別してます
-        //TODO boolean型で保存できるようにする(要検索)
-        if (Objects.equals(morning, "true")) {
-            scheduler.scheduleFile(new File(folder + "Morning.txt"));
+
+        //メゾットにしたのは後で変更がやりやすいからです
+        if (Objects.equals(morningB, "true")) {
+            scheduler.schedule(morningTime,)
         }
-        if (Objects.equals(week, "true")) {
+        if (Objects.equals(weekB, "true")) {
             scheduler.scheduleFile(new File(folder + "Week.txt"));
         }
-        if (Objects.equals(month, "true")) {
+        if (Objects.equals(monthB, "true")) {
             scheduler.scheduleFile(new File(folder + "Month.txt"));
         }
         scheduler.start();
 
-        //コマンド
-        //イベント系はeで略しています
-        if (gateway == null) return;
-
         //クライアントの情報を手に入れる
         ApplicationInfo appInfo = gateway.getApplicationInfo().block();
 
+        //コマンド
+        //イベント系はeで略しています
         gateway.on(MessageCreateEvent.class).subscribe(e -> {
             Guild guild = e.getGuild().block();
             Message message = e.getMessage();
@@ -208,7 +224,6 @@ public class Main {
 
         gateway.onDisconnect().block();
     }
-
     //メゾットの定義
     //メッセージを送るメゾット
     public static void sendMsg(String text, @NotNull MessageChannel channel) {
@@ -253,8 +268,15 @@ public class Main {
             }
         }
     }
-    public static String cron4jTextFileContents(String minute, String hour, String day, String month,String dayOfWeek, String JavaClass, String method) {
-        //"* * * * * java:Class# Method
-        return String.join(" ", minute, hour, day, month, dayOfWeek) + " java:" + JavaClass + "#" + method;
+    public static String cron4jTextFileContents(String minute, String hour, String day, String month,String dayOfWeek) {
+        //"* * * * *
+        return String.join(" ", minute, hour, day, month, dayOfWeek);
+    }
+
+    public static void morningForecast(String[] strings) {
+    }
+    public static void weekForecast(String[] strings) {
+    }
+    public static void monthForecast(String[] strings) {
     }
 }
