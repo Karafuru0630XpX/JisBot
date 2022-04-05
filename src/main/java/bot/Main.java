@@ -55,18 +55,15 @@ public class Main {
         //天気予報の時間指定用テキストファイルを生成
         createAndWriteTextFile( folder + "Morning.txt",cron4jTextFileContents("30","7","*","*","*"));
         createAndWriteTextFile(folder + "Week.txt",cron4jTextFileContents("0","12","*","*","Mon"));
-        createAndWriteTextFile(folder + "Month.txt",cron4jTextFileContents("0","8","1","*","*"));
 
         //時間指定テキストファイルを読み込み
         //パスを定義
         Path morning = Paths.get(folder + "Morning.txt");
         Path week = Paths.get(folder + "Week.txt");
-        Path month = Paths.get(folder + "Month.txt");
 
         //String化
         String morningTime = Files.readString(morning);
         String weekTime = Files.readString(week);
-        String monthTime = Files.readString(month);
 
         //プロパティファイルを作成
         System.out.println("  ---config.properties--- ");
@@ -80,7 +77,6 @@ public class Main {
         config.setProperty("prefix","/");
         config.setProperty("WordsApiKey","What3Words Api key");
         config.setProperty("WeatherForecastWeek","true");
-        config.setProperty("WeatherForecastMonth","true");
         config.setProperty("WeatherForecastMorning","true");
 
         //プロパティファイルがないときに実行
@@ -122,7 +118,6 @@ public class Main {
         String prefix = config.getProperty("prefix");
         String apiKey = config.getProperty("WordsApiKey");
         String weekB = config.getProperty("WeatherForecastWeek");
-        String monthB = config.getProperty("WeatherForecastMonth");
         String morningB = config.getProperty("WeatherForecastMorning");
 
         //読み込んだ情報をコンソールにて伝える
@@ -135,7 +130,6 @@ public class Main {
         System.out.println(" <  Weather Forecast  >");
         System.out.println("  Weather forecast morning(WeatherForecastMorning) : " + morningB);
         System.out.println("  Weather forecast week(WeatherForecastWeek) : " + weekB);
-        System.out.println("  Weather forecast month(WeatherForecastMonth) : " + monthB);
         System.out.println("-------------------");
 
         //ここから実際のコード
@@ -160,13 +154,14 @@ public class Main {
 
         //メゾットにしたのは後で変更がやりやすいからです
         if (Objects.equals(morningB, "true")) {
-            scheduler.schedule(morningTime,)
+            Morning mor = new Morning();
+            mor.setTextChannel(systemChannel);
+            scheduler.schedule(morningTime,new Morning());
         }
         if (Objects.equals(weekB, "true")) {
-            scheduler.scheduleFile(new File(folder + "Week.txt"));
-        }
-        if (Objects.equals(monthB, "true")) {
-            scheduler.scheduleFile(new File(folder + "Month.txt"));
+            Week wee = new Week();
+            wee.setSystemC(systemChannel);
+            scheduler.schedule(weekTime,new Week());
         }
         scheduler.start();
 
@@ -271,12 +266,5 @@ public class Main {
     public static String cron4jTextFileContents(String minute, String hour, String day, String month,String dayOfWeek) {
         //"* * * * *
         return String.join(" ", minute, hour, day, month, dayOfWeek);
-    }
-
-    public static void morningForecast(String[] strings) {
-    }
-    public static void weekForecast(String[] strings) {
-    }
-    public static void monthForecast(String[] strings) {
     }
 }
