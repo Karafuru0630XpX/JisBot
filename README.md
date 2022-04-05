@@ -36,7 +36,7 @@ discord4jというライブラリを使用して作ったbotです。
 ## 🔨作成者
 
 * [Karafuru - からふる](https://github.com/Karafuru0630XpX/)
-* xpx0karafuru0630@gmail.com
+  * xpx0karafuru0630@gmail.com 
 
 <a id="chapter6"></a>
 ## 🍌前提
