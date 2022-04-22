@@ -18,10 +18,9 @@ import discord4j.rest.util.Image;
 import it.sauronsoftware.cron4j.Scheduler;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.time.Instant;
 import java.util.Date;
 import java.util.Objects;
@@ -36,34 +35,21 @@ public class Main {
         System.out.println("  ---config folder---");
         File configFolder = new File("config");
         if (configFolder.exists()) {
-            System.out.println("ファイルが見つかりました。生成しません");
+            System.out.println("フォルダが見つかりました。生成しません");
         }
         //フォルダがない場合
         if (!configFolder.exists()) {
-            System.out.println("ファイルが見つかりませんでした。生成します");
+            System.out.println("フォルダが見つかりませんでした。生成します");
             if (configFolder.mkdir()) {
-                System.out.println("ファイル生成 : 成功");
+                System.out.println("フォルダ生成 : 成功");
             } else {
-                System.out.println("ファイル生成 : 失敗");
+                System.out.println("フォルダ生成 : 失敗");
             }
         }
 
         //コンフィグフォルダのパスを定義
         //あとで簡単に変更できるように定義
         String folder = "config/";
-
-        //天気予報の時間指定用テキストファイルを生成
-        createAndWriteTextFile( folder + "Morning.txt",cron4jTextFileContents("30","7","*","*","*"));
-        createAndWriteTextFile(folder + "Week.txt",cron4jTextFileContents("0","12","*","*","Mon"));
-
-        //時間指定テキストファイルを読み込み
-        //パスを定義
-        Path morning = Paths.get(folder + "Morning.txt");
-        Path week = Paths.get(folder + "Week.txt");
-
-        //String化
-        String morningTime = Files.readString(morning);
-        String weekTime = Files.readString(week);
 
         //プロパティファイルを作成
         System.out.println("  ---config.properties--- ");
@@ -78,6 +64,8 @@ public class Main {
         config.setProperty("WordsApiKey","What3Words Api key");
         config.setProperty("WeatherForecastWeek","true");
         config.setProperty("WeatherForecastMorning","true");
+        config.setProperty("MorningTime","30 7 * * *");
+        config.setProperty("WeekTime","0 12 * * Mon");
 
         //プロパティファイルがないときに実行
         if (propertiesPath.exists()) {
@@ -119,6 +107,8 @@ public class Main {
         String apiKey = config.getProperty("WordsApiKey");
         String weekB = config.getProperty("WeatherForecastWeek");
         String morningB = config.getProperty("WeatherForecastMorning");
+        String morningT = config.getProperty("MorningTime");
+        String weekT = config.getProperty("WeekTime");
 
         //読み込んだ情報をコンソールにて伝える
         System.out.println("-----Setteings-----");
@@ -130,6 +120,8 @@ public class Main {
         System.out.println(" <  Weather Forecast  >");
         System.out.println("  Weather forecast morning(WeatherForecastMorning) : " + morningB);
         System.out.println("  Weather forecast week(WeatherForecastWeek) : " + weekB);
+        System.out.println("  WF morning time (MorningTime) : " + morningT);
+        System.out.println("  WF week time(WeekTime) : " + weekT);
         System.out.println("-------------------");
 
         //ここから実際のコード
@@ -156,12 +148,12 @@ public class Main {
         if (Objects.equals(morningB, "true")) {
             Morning mor = new Morning();
             mor.setTextChannel(systemChannel);
-            scheduler.schedule(morningTime,new Morning());
+            scheduler.schedule(morningT,new Morning());
         }
         if (Objects.equals(weekB, "true")) {
             Week wee = new Week();
             wee.setSystemC(systemChannel);
-            scheduler.schedule(weekTime,new Week());
+            scheduler.schedule(weekT,new Week());
         }
         scheduler.start();
 
@@ -219,6 +211,7 @@ public class Main {
 
         gateway.onDisconnect().block();
     }
+
     //メゾットの定義
     //メッセージを送るメゾット
     public static void sendMsg(String text, @NotNull MessageChannel channel) {
@@ -235,36 +228,5 @@ public class Main {
     public static ConvertToCoordinates WordConvert(String word1, String word2, String word3, @NotNull What3WordsV3 apiKey) {
         String words = word1 + "." + word2 + "." + word3;
         return apiKey.convertToCoordinates(words).execute();
-    }
-    //テキストファイルを作成して書き込むメゾット
-    public static void createAndWriteTextFile(String FileName,String detail) throws IOException {
-        //ファイルのパスを設定
-        File textFile = new File(FileName);
-        //ログ
-        System.out.println("  ---" + FileName + "---");
-        //生成
-        //時間指定用テキストファイルがある場合
-        if (textFile.exists()) {
-            System.out.println("ファイルが見つかりました。生成しません");
-        }
-        //時間指定用テキストファイルがない場合
-        if (!textFile.exists()) {
-            System.out.println("ファイルが見つかりませんでした。生成します");
-            if (textFile.createNewFile()) {
-                //書き込み
-                FileWriter writer = new FileWriter(textFile);
-                PrintWriter pw = new PrintWriter(new BufferedWriter(writer));
-                //分 時 日 月　曜
-                pw.println(detail);
-                pw.close();
-                System.out.println("ファイル生成 : 成功");
-            } else {
-                System.out.println("ファイル生成 : 失敗");
-            }
-        }
-    }
-    public static String cron4jTextFileContents(String minute, String hour, String day, String month,String dayOfWeek) {
-        //"* * * * *
-        return String.join(" ", minute, hour, day, month, dayOfWeek);
     }
 }
