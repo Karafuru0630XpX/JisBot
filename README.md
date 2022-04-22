@@ -98,7 +98,7 @@ If you do not fill in the api key, commands using Api will not be available (the
 * If the Api key is not mentioned, the command will be disabled and will not generate an error.
 
 <a id="chapter12"></a>
-## ⚠　Issues
+## ⚠Issues
 None at present  
 Let me know if you have any problems
 
