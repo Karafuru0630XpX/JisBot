@@ -7,7 +7,7 @@ public class Morning implements Runnable{
     @Override
     public void run() {
         if (systemC != null) {
-            systemC.createMessage("朝ですよ！");
+            systemC.createMessage("朝です");
         } else {
             System.out.println("システムチャンネルがありません");
         }
