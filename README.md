@@ -1,5 +1,6 @@
 <a id="chapter1"></a>
 # 🤖JisBot (JavaDiscordBot) [![Download][badge]][link]
+※日本語のREADMEは[こちら](https://github.com/Karafuru0630XpX/JisBot/blob/master/README-JA.md)
 
 [badge]: https://img.shields.io/badge/-%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89-4FC08D.svg?logo=&style=plastic
 [link]: https://github.com/Karafuru0630XpX/JisBot/releases
@@ -78,8 +79,9 @@ java -jar <FileName>
 ## 📒Function
 Will add when v1.0 is released
 
-###⌘コマンド
-###⚙️Config
+### ⌘コマンド  
+
+### ⚙️Config
 
 <a id="chapter9"></a>
 ## 📝Memo

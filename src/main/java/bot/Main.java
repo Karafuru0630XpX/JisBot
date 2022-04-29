@@ -181,7 +181,6 @@ public class Main {
                 }
             }
             if (text.startsWith(prefix + "wordLoc")) {
-                if (wordKey == null) return;
                 if (args.length != 4) {
                     sendMsg("ワードが足りません！```usage: /wordLoc <単語1> <単語2> <単語3>```",channel);
                 } else {
